@@ -113,9 +113,9 @@ class SegmentScraper:
             return effort
 
 		
-    def extract_segment_time(self, segment_id):
+    def get_segment_leaderboard(self, segment_id):
         '''
-        Get the segement leaderboard for a segment and extract it into a list of SegmentEffort objects
+        Get the segment leaderboard for a segment and extract it into a list of SegmentEffort objects
         '''
 
         segment_url = "{}/{}".format(SegmentScraper.URL_SEGMENTS, segment_id)
@@ -142,7 +142,7 @@ def main():
     segment_id = sys.argv[1]
         
     scraper = SegmentScraper()
-    efforts = scraper.extract_segment_time(segment_id)
+    efforts = scraper.get_segment_leaderboard(segment_id)
 
     if efforts:
         kom = efforts[0]
